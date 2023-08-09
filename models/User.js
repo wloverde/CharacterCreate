@@ -16,25 +16,61 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: {
+          msg: 'Username is required.',
+        },
+        len: {
+          args: [8, 25],
+          msg: 'Username must be between 8 and 25 characters.'
+        },
+      },
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Name is required.',
+        },
+      },
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true,
+        notEmpty: {
+          msg: 'Email address is required.',
+        },
+        isEmail: {
+          msg: 'Invalid email format.',
+        },
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        notEmpty: {
+          msg: 'Password is required.',
+        },
+        len: {
+          args: [8, 25],
+          msg: 'Password must be between 8 and 25 characters.',
+        },
       },
     },
+    profile_url: {
+      type: DataTypes.VIRTUAL, // Not stored in database
+      get() {
+        return `/profile/${this.username}`; // Link to user page
+      }
+    }
   },
   {
     hooks: {
