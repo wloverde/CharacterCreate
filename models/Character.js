@@ -2,8 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Project extends Model {}
-// created character information
-// NEEDS TO MATCH SEED EXAMPLE
+
+// Created character information
 Project.init(
   {
     id: {
@@ -22,6 +22,22 @@ Project.init(
         model: 'user',
         key: 'id',
       },
+    },
+    class: {
+      type: DataTypes.STRING, // 'Wizard', 'Barbarian', 'Fighter', etc.
+      allowNull: false,
+    },
+    race: {
+      type: DataTypes.STRING, // 'Human', 'Orc', 'Elf', etc.
+      allowNull: false,
+    },
+    health: {
+      type: DataTypes.INTEGER,
+      allowNull: true, // Could be updated later
+    },
+    max_health: {
+      type: DataTypes.INTEGER,
+      allowNull: true, // Could be altered by items, abilities, or leveling up
     },
   },
   {
