@@ -8,6 +8,5 @@
     "health": 15,
     "max_health": 17,
     "user_id": 1 //connect to user db
-
   }
 ]
