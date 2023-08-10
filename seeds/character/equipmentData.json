@@ -1,0 +1,9 @@
+[
+    {
+      "character_id": 1,
+      "armor" : "light armor",
+      "weapons" : ["bow", "dagger"],
+      "gold" : 100,
+      "misc" : ["bag of holding", "arrows x30", "a stick of dynamite"]
+    }
+]

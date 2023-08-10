@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Drizt Do Urden",
+    "image": "https://placebeard.it/200x400",
+    "class": "Ranger",
+    "level" : 1,
+    "race": "Dark Elf",
+    "background" : "Folk Hero",
+    "alignment" : "Lawful-good",
+    "user_id": 1 
+  }
+]

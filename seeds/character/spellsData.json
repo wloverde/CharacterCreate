@@ -1,0 +1,17 @@
+[
+    {   
+        "character_id" : 1,
+        "cantrips_known": 0,
+        "spells_known": 2,
+        "cantrips" : [],
+        "level1": ["animal friendship", "Goodberry"],
+        "level2": [],
+        "level3": [],
+        "level4": [],
+        "level5": [],
+        "level6": [],
+        "level7": [],
+        "level8": [],
+        "level9": []
+    }
+]

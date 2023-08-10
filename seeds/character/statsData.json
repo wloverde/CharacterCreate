@@ -1,0 +1,11 @@
+[
+    {
+        "character_id": 1,
+        "current_health" : 15,
+        "max_health" : 17,
+        "temp_health" : 0,
+        "hit_dice" : "1 d10",
+        "armor_class" : 13,
+        "speed" : 30
+    }
+]
