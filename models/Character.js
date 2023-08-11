@@ -12,7 +12,7 @@ Character.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    character_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -23,21 +23,68 @@ Character.init(
         key: 'id',
       },
     },
-    class: {
-      type: DataTypes.STRING, // 'Wizard', 'Barbarian', 'Fighter', etc.
-      allowNull: false,
+    class_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'class',
+        key: 'id',
+      },
     },
     race: {
-      type: DataTypes.STRING, // 'Human', 'Orc', 'Elf', etc.
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.TEXT, // Image URL or filepath
+      allowNull: true, // Image may be optional
+    },
+    level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 20,
+      },
+    },
+    armor: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    speed: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    strength: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    dexterity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    constitution: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    intelligence: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    wisdom: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    charisma: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     health: {
       type: DataTypes.INTEGER,
-      allowNull: true, // Could be updated later
+      allowNull: true,
     },
     max_health: {
       type: DataTypes.INTEGER,
-      allowNull: true, // Could be altered by items, abilities, or leveling up
+      allowNull: true,
     },
   },
   {
