@@ -1,3 +1,6 @@
+const { Character } = require('../../models');
+
+const characterdata =
 [
   {
     "user_id": 1 , 
@@ -19,3 +22,6 @@
     "charisma": 16
   }
 ]
+const seedCharacter = () => Character.bulkCreate(characterdata);
+
+module.exports = seedCharacter;

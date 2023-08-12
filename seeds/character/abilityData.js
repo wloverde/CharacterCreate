@@ -1,3 +1,6 @@
+const { Ability } = require('../../models');
+
+const abilitydata =
 [
   {
     "ability_name": "darkvision",
@@ -20,3 +23,7 @@
     "description": "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action."
   }
 ]
+
+const seedAbility = () => Ability.bulkCreate(abilitydata);
+
+module.exports = seedAbility;
