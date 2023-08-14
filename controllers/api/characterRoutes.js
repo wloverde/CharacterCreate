@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Character } = require('../../models');
+const { Character, Class } = require('../../models');
 
 // POST create a new character
 router.post('/', async (req, res) => {
@@ -31,6 +31,25 @@ router.get('/:userId/:characterId', async (req, res) => {
     }
 
     res.json(character);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// GET class by ID
+// No PUT since class is Static
+router.get('/class/:classId', async (req, res) => {
+  const { classId } = req.params;
+
+  try {
+    const classData = await Class.findByPk(classId);
+
+    if (!classData) {
+      return res.status(404).json({ message: 'Class not found' });
+    }
+
+    res.json(classData);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
