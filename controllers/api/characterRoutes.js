@@ -22,8 +22,8 @@ router.get('/:userId/:characterId', async (req, res) => {
     const character = await Character.findOne({
       where: {
         user_id: userId,
-        character_id: characterId
-      }
+        character_id: characterId,
+      },
     });
 
     if (!character) {
@@ -43,13 +43,16 @@ router.put('/:userId/:characterId', async (req, res) => {
   const updatedData = req.body;
 
   try {
-    const [updatedRowsCount, updatedCharacters] = await Character.update(updatedData, {
-      where: {
-        user_id: userId,
-        character_id: characterId
-      },
-      returning: true // Returns the updated rows
-    });
+    const [updatedRowsCount, updatedCharacters] = await Character.update(
+      updatedData,
+      {
+        where: {
+          user_id: userId,
+          character_id: characterId,
+        },
+        returning: true, // Returns the updated rows
+      }
+    );
 
     if (updatedRowsCount === 0) {
       return res.status(404).json({ message: 'Character not found' });

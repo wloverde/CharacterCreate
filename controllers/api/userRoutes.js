@@ -43,7 +43,6 @@ router.get('/:userId', async (req, res) => {
   }
 });
 
-
 // PUT update user by ID
 router.put('/:userId', async (req, res) => {
   const { userId } = req.params;
@@ -52,9 +51,9 @@ router.put('/:userId', async (req, res) => {
   try {
     const [updatedRowsCount, updatedUsers] = await User.update(updatedData, {
       where: {
-        id: userId
+        id: userId,
       },
-      returning: true // Returns the updated rows
+      returning: true, // Returns the updated rows
     });
 
     if (updatedRowsCount === 0) {
@@ -75,8 +74,8 @@ router.delete('/:userId', async (req, res) => {
   try {
     const deletedRowsCount = await User.destroy({
       where: {
-        id: userId
-      }
+        id: userId,
+      },
     });
 
     if (deletedRowsCount === 0) {
