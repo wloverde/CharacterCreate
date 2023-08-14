@@ -14,6 +14,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET all characters
+router.get('/', async (req, res) => {
+  try {
+    const characters = await Character.findAll();
+    res.json(characters);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 // GET character data by user ID and class ID
 router.get('/:userId/:characterId', async (req, res) => {
   const { userId, characterId } = req.params;

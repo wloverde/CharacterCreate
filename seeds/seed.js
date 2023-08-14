@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const seedUser = require('./userData');
 const seedCharacter = require('./character/characterData');
 const seedClass = require('./character/classData');
-const seedCharAbility = require('./character/characterAbilityData.json');
+const seedCharAbility = require('./character/characterAbility');
 const seedAbility = require('./character/abilityData');
 
 const seedDatabase = async () => {
