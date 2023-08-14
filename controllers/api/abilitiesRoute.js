@@ -49,6 +49,44 @@ router.post('/character/:characterId/abilities/:abilityId', async (req, res) => 
   }
 });
 
+// PUT update the list of abilities associated with a character
+router.put('/character/:characterId/abilities', async (req, res) => {
+    const { characterId } = req.params;
+    const newAbilityIds = req.body.abilityIds; 
+    // you pass an array of new ability IDs
+  
+    try {
+      // Find the existing character abilities
+      const existingCharacterAbilities = await CharacterAbility.findAll({
+        where: {
+          character_id: characterId
+        }
+      });
+  
+      // Delete existing abilities associated with the character
+      await CharacterAbility.destroy({
+        where: {
+          character_id: characterId
+        }
+      });
+  
+      // Create new associations for the updated abilities
+      const newCharacterAbilities = await Promise.all(
+        newAbilityIds.map(async (abilityId) => {
+          return CharacterAbility.create({
+            character_id: characterId,
+            ability_id: abilityId
+          });
+        })
+      );
+  
+      res.json(newCharacterAbilities);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
 // DELETE disassociate an ability from a character
 router.delete('/character/:characterId/abilities/:abilityId', async (req, res) => {
   const { characterId, abilityId } = req.params;
