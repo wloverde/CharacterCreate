@@ -1,0 +1,48 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body class= "grey darken-3">
+    <header class="center"> 
+        <img src="public/images/DnD-Symbol.png" width="300" alt ="DnD-Symbol" class="responsive-img">
+    </header>
+   
+    <nav>
+        <div class = "nav-wrapper red darken-4"> 
+            <ul class= "right">
+                <li><a class ="right">Home</a></li>
+            {{#if loggedIn}}
+                <li><a id="logout" class="right">Logout</a></li>
+            {{else}}
+            <a href="/login">Login</a>
+           {{/if}}
+        </ul>
+        </div>
+
+    {{#if loggedIn}}
+     <script src="/js/logout.js"></script>
+    {{/if}}
+
+    </nav>
+
+
+  <h4>Background & Abilities: </h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">person</i>
+              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <label for="icon_prefix2">Name</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+ 
+
+</div>
