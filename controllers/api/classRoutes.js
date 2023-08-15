@@ -2,25 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Class } = require('../../models');
 
-// POST create new class
-router.post('/', async (req, res) => {
-    const { name, ability1, ability2, ability3 } = req.body;
-  
-    try {
-      const newClass = await Class.create({
-        name,
-        ability1,
-        ability2,
-        ability3
-      });
-  
-      res.status(201).json(newClass);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
-
 // GET all classes
 router.get('/', async (req, res) => {
   try {
@@ -37,39 +18,55 @@ router.get('/:classId', async (req, res) => {
   const { classId } = req.params;
 
   try {
-    const classInstance = await Class.findByPk(classId);
+    const singleClass = await Class.findByPk(classId);
     
-    if (!classInstance) {
+    if (!singleClass) {
       return res.status(404).json({ message: 'Class not found' });
     }
 
-    res.json(classInstance);
+    res.json(singleClass);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// PUT update class abilities
-router.put('/:classId', async (req, res) => {
-  const { classId } = req.params;
-  const { ability1, ability2, ability3 } = req.body;
+// POST create new class
+router.post('/', async (req, res) => {
+  const classData = req.body;
 
   try {
-    const classInstance = await Class.findByPk(classId);
+    const newClass = await Class.create(classData);
 
-    if (!classInstance) {
+    res.status(201).json(newClass);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// PUT update class by ID
+router.put('/:classId', async (req, res) => {
+  const { classId } = req.params;
+  const classData = req.body;
+
+  try {
+    const singleClass = await Class.findByPk(classId);
+
+    if (!singleClass) {
       return res.status(404).json({ message: 'Class not found' });
     }
 
-    // Update abilities if provided
-    if (ability1) classInstance.ability1 = ability1;
-    if (ability2) classInstance.ability2 = ability2;
-    if (ability3) classInstance.ability3 = ability3;
+    // Update class properties if provided
+    for (const key in classData) {
+      if (classData.hasOwnProperty(key)) {
+        singleClass[key] = classData[key];
+      }
+    }
 
-    await classInstance.save();
+    await singleClass.save();
 
-    res.json(classInstance);
+    res.json(singleClass);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
@@ -81,13 +78,13 @@ router.delete('/:classId', async (req, res) => {
   const { classId } = req.params;
 
   try {
-    const classInstance = await Class.findByPk(classId);
+    const singleClass = await Class.findByPk(classId);
 
-    if (!classInstance) {
+    if (!singleClass) {
       return res.status(404).json({ message: 'Class not found' });
     }
 
-    await classInstance.destroy();
+    await singleClass.destroy();
 
     res.json({ message: 'Class deleted successfully' });
   } catch (error) {
