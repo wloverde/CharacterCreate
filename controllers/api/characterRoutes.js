@@ -1,16 +1,97 @@
 const router = require('express').Router();
-const { Character } = require('../../models');
+const { Character, Class } = require('../../models');
 
+// POST create a new character
 router.post('/', async (req, res) => {
+  const newCharacterData = req.body;
+
   try {
-    const newCharacter = await Character.create({
-      ...req.body,
-      user_id: req.session.user_id,
+    const createdCharacter = await Character.create(newCharacterData);
+    res.status(200).json(createdCharacter);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// GET all characters
+router.get('/', async (req, res) => {
+  try {
+    const characters = await Character.findAll();
+    res.json(characters);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// GET character data by user ID and class ID
+router.get('/:userId/:characterId', async (req, res) => {
+  const { userId, characterId } = req.params;
+
+  try {
+    const character = await Character.findOne({
+      where: {
+        user_id: userId,
+        character_id: characterId,
+      },
     });
 
-    res.status(200).json(newCharacter);
-  } catch (err) {
-    res.status(400).json(err);
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    res.json(character);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// GET class by ID
+// No PUT since class is Static
+router.get('/class/:classId', async (req, res) => {
+  const { classId } = req.params;
+
+  try {
+    const classData = await Class.findByPk(classId);
+
+    if (!classData) {
+      return res.status(404).json({ message: 'Class not found' });
+    }
+
+    res.json(classData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// PUT update character data by user ID and character ID
+router.put('/:userId/:characterId', async (req, res) => {
+  const { userId, characterId } = req.params;
+  const updatedData = req.body;
+
+  try {
+    const [updatedRowsCount, updatedCharacters] = await Character.update(
+      updatedData,
+      {
+        where: {
+          user_id: userId,
+          character_id: characterId,
+        },
+        returning: true, // Returns the updated rows
+      }
+    );
+
+    if (updatedRowsCount === 0) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    res.json(updatedCharacters[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 

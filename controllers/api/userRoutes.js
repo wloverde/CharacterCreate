@@ -1,62 +1,91 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// POST create a new user
 router.post('/', async (req, res) => {
+  const newUser = req.body;
+
   try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
+    const createdUser = await User.create(newUser);
+    res.status(201).json(createdUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// ADD Username as login option
-
-router.post('/login', async (req, res) => {
+// GET all users
+router.get('/', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
-
-  } catch (err) {
-    res.status(400).json(err);
+    const users = await User.findAll();
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
+// GET user by ID
+router.get('/:userId', async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// PUT update user by ID
+router.put('/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const updatedData = req.body;
+
+  try {
+    const [updatedRowsCount, updatedUsers] = await User.update(updatedData, {
+      where: {
+        id: userId,
+      },
+      returning: true, // Returns the updated rows
     });
-  } else {
-    res.status(404).end();
+
+    if (updatedRowsCount === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(updatedUsers[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// DELETE user by ID
+router.delete('/:userId', async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const deletedRowsCount = await User.destroy({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (deletedRowsCount === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
