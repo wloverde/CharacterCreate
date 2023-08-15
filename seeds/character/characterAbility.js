@@ -1,6 +1,6 @@
-const { CharAbility } = require('../../models');
+const { CharacterAbility } = require('../../models');
 
-const charabilitydata =
+const charAbilityData =
 
 [
     {   
@@ -9,6 +9,6 @@ const charabilitydata =
     }
 ]
 
-const seedCharAbility = () => CharAbility.bulkCreate(charabilitydata);
+const seedCharAbility = () => CharacterAbility.bulkCreate(charAbilityData);
 
 module.exports = seedCharAbility;
