@@ -22,7 +22,7 @@ Ability.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'character',
+        modelName: 'ability',
     }
 );
 
