@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 
 class Character extends Model {}
 
-// Created character information
 Character.init(
   {
     id: {
@@ -81,11 +80,7 @@ Character.init(
     health: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    max_health: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+    }
   },
   {
     sequelize,

@@ -1,6 +1,6 @@
-const { Ability } = require('../../models');
+const { Ability } = require('../../../models');
 
-const abilitydata =
+const abilityData =
 [
   {
     "ability_name": "darkvision",
@@ -64,6 +64,6 @@ const abilitydata =
   }
 ]
 
-const seedAbility = () => Ability.bulkCreate(abilitydata);
+const seedAbility = () => Ability.bulkCreate(abilityData);
 
 module.exports = seedAbility;

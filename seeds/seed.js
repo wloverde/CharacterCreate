@@ -3,17 +3,17 @@ const sequelize = require('../config/connection');
 const seedUser = require('./userData');
 const seedCharacter = require('./character/characterData');
 const seedClass = require('./character/classData');
-const seedCharAbility = require('./character/characterAbility');
-const seedAbility = require('./character/abilityData');
+// const seedCharAbility = require('./character/characterAbility');
+// const seedAbility = require('./character/archive/abilityData');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   await seedUser();
-  await seedCharacter();
   await seedClass();
-  await seedCharAbility();
-  await seedAbility();
+  // await seedAbility();
+  // await seedCharAbility();
+  await seedCharacter();
   
   process.exit(0);
 };
