@@ -27,28 +27,52 @@ const classData =
     "ability3" : "bonus attack"
   },
   {
-    "name": "Fighter"
+    "name": "Fighter",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Monk"
+    "name": "Monk",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Paladin"
+    "name": "Paladin",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Ranger"
+    "name": "Ranger",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Rogue"
+    "name": "Rogue",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Sorcerer"
+    "name": "Sorcerer",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Warlock"
+    "name": "Warlock",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Wizard"
+    "name": "Wizard",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   }
 ]
 const seedClass = () => Class.bulkCreate(classData);
