@@ -3,16 +3,28 @@ const { Class } = require('../../models');
 const classData =
 [
   {
-    "name": "Barbarian"
+    "name": "Barbarian",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Bard"
+    "name": "Bard",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Cleric"
+    "name": "Cleric",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
-    "name": "Druid"
+    "name": "Druid",
+    "ability1" : "swing axe",
+    "ability2" : "get mad",
+    "ability3" : "bonus attack"
   },
   {
     "name": "Fighter"

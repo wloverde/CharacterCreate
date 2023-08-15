@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Ability, CharacterAbility } = require('../../models');
+const { Ability, CharacterAbility } = require('../../../models');
 // NEED Ability and CharacterAbility models
 
 
