@@ -12,7 +12,7 @@ Character.belongsTo(User, {
 });
 
 Class.hasOne(Character, {
-  foreignKey: 'class',
+  foreignKey: 'class_id',
 });
 
 module.exports = { User, Character, Class };
