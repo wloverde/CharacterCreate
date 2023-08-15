@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Custom Morgon log that includes HTTP method, URL, response status, and response time
-const cutomLog = ':method :url - Status: :status, Response Time: :response-time ms';
+const customLog = ':method :url - Status: :status, Response Time: :response-time ms';
 
 // Use custom Morgan middleware
 app.use(morgan(customLog));
