@@ -5,6 +5,6 @@ const classRoutes = require('./classRoutes');
 
 router.use('/users', userRoutes);
 router.use('/characters', characterRoutes);
-app.use('/classes', classRoutes);
+router.use('/classes', classRoutes);
 
 module.exports = router;
