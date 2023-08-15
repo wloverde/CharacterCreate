@@ -10,10 +10,10 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   await seedUser();
-  await seedCharacter();
   await seedClass();
-  await seedCharAbility();
   await seedAbility();
+  await seedCharAbility();
+  await seedCharacter();
   
   process.exit(0);
 };

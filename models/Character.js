@@ -81,11 +81,7 @@ Character.init(
     health: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    max_health: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+    }
   },
   {
     sequelize,

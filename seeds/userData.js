@@ -1,6 +1,6 @@
 const { User } = require('../models');
 
-const userdata =
+const userData =
 [
   {
     "username" : "sanpy",
@@ -9,6 +9,6 @@ const userdata =
     "password": "password12345"
   }
 ]
-const seedUser = () => User.bulkCreate(userdata);
+const seedUser = () => User.bulkCreate(userData);
 
 module.exports = seedUser;
