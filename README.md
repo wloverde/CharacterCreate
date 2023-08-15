@@ -19,15 +19,17 @@ A Tabletop RPG Character Creation Sheet using Node.js, Express.js, Sequelize, Ha
 
 To install necessary dependencies, run the following command:
 
-npm start
+```npm i```
+
+Then create a '.env' file that matches the example
     
 ## Usage
     
-![alt text](assets/images/proposdal letter link)
+[link to heroku application](https://character-create-6e08ef125fdc.herokuapp.com/)
     
 ## Credits
     
-proposal
+[proposal](https://docs.google.com/document/d/1Hu0pBlV5bhfAMALeNY7oJTbFrQPmcImOWEObM_BR7uk/edit?usp=sharing)
     
 ## License
 
@@ -37,8 +39,8 @@ This project is licensed under the MIT license.
 ​
 To run tests, run the following command:
 ​
-npm test
+```npm test```
 ​
 ## Questions
 ​
-If you have any questions about the repo, open an issue or contact me directly at w.andrew.loverde@gmail.com. You can find more of my work at [wloverde](https://github.com/wloverde/).
+If you have any questions about the repo, open an issue report or contact me directly at w.andrew.loverde@gmail.com. You can find more of my work at [wloverde](https://github.com/wloverde/).
