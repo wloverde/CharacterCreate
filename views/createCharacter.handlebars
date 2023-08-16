@@ -1,48 +1,73 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Creation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
 <body class= "grey darken-3">
-    <header class="center"> 
-        <img src="public/images/DnD-Symbol.png" width="300" alt ="DnD-Symbol" class="responsive-img">
-    </header>
-   
-    <nav>
-        <div class = "nav-wrapper red darken-4"> 
-            <ul class= "right">
-                <li><a class ="right">Home</a></li>
-            {{#if loggedIn}}
-                <li><a id="logout" class="right">Logout</a></li>
-            {{else}}
-            <a href="/login">Login</a>
-           {{/if}}
-        </ul>
-        </div>
-
-    {{#if loggedIn}}
-     <script src="/js/logout.js"></script>
-    {{/if}}
-
-    </nav>
+  
+    <div class="container center red darken-4">
+      <h1 class="flow-text white-text">Character creation can sometimes take forever. Our charater builder makes it quick and easy. Select from the options below to generate your own character sheet.</h1>
+    </div>
 
 
-  <h4>Background & Abilities: </h4>
+  <div class="card blue-grey lighten-4">
+    <div class="container">
+      <h5>Background & Abilities: </h5>
       <div class="row">
-        <form class="col s12">
+        <form class="col s7">
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">person</i>
               <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-              <label for="icon_prefix2">Name</label>
+              <label for="icon_prefix2" class="black-text">Name your Character</label>
             </div>
           </div>
         </form>
       </div>
 
- 
+  <h5>Class:</h5>
+      <a href="" class="dropdown-button btn black" data-activates="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
+      <ul id="classdropdown" class="dropdown-content">
+          <li><a href ="#"> Barbarian</a></li>
+          <li><a href ="#"> Bard</a></li>
+          <li><a href ="#"> Cleric</a></li>
+          <li><a href ="#"> Druid</a></li>
+          <li><a href ="#"> Fighter</a></li>
+          <li><a href ="#"> Monk</a></li>
+          <li><a href ="#"> Paladin</a></li>
+          <li><a href ="#"> Ranger</a></li>
+          <li><a href ="#"> Rogue</a></li>
+          <li><a href ="#"> Sorcerer</a></li>
+          <li><a href ="#"> Warlock</a></li>
+          <li><a href ="#"> Wizard</a></li>
+      </ul>
+   
+  
+  <h5>Race:</h5>
+      <a href="" class="dropdown-button btn black" data-activates="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
+      <ul id="classdropdown" class="dropdown-content">
+          <li><a href ="#"> Elf</a></li>
+          <li><a href ="#"> Tiefling</a></li>
+          <li><a href ="#"> Dwarf</a></li>
+          <li><a href ="#"> Halfling</a></li>
+          <li><a href ="#"> Dragonborn</a></li>
+          <li><a href ="#"> Human</a></li>
+        </ul>
+   
 
-</div>
+   <h5>Level: </h5>
+   <div class="row">
+     <form class="col s7">
+       <div class="row">
+         <div class="input-field col s6">
+           <i class="material-icons prefix">add_circle</i>
+           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <label for="icon_prefix2" class="black-text">Enter level 1-20</label>
+         </div>
+       </div>
+     </form>
+   </div>
+    
+      <!--  </div>
+        {{user}}
+  
+        {{character}}
+         
+        </div> -->
+   
+   
