@@ -53,12 +53,12 @@ router.get('/user/:userId', async (req, res) => {
 });
 
 // POST create new character for a specific user
-router.post('/user/:userId', async (req, res) => {
-  const { userId } = req.params;
+router.post('/', async (req, res) => {
+  const { user_id } = req.session;
   const characterData = req.body;
 
   try {
-    const user = await User.findByPk(userId);
+    const user = await User.findByPk(user_id);
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
