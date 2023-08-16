@@ -1,0 +1,20 @@
+body{
+    background image: url(back.jpeg);
+    background-size: cover;
+    color: #ffff;
+
+}
+.login{
+    margin-top: 100px;
+}
+.login .card{
+    background: rgba(0, 0, 0, .6);
+}
+.login label{
+    font-size: 22px !important;
+    color: #CCCC;
+}
+.login button: hover{
+    padding:0x, 40px;
+
+}
