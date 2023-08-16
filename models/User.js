@@ -33,12 +33,13 @@ User.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: 'Name is required.',
-        },
-      },
+      allowNull: true,
+      defaultValue: "bob",
+      // validate: {
+      //   notEmpty: {
+      //     msg: 'Name is required.',
+      //   },
+      // },
     },
     email: {
       type: DataTypes.STRING,

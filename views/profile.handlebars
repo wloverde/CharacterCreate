@@ -1,15 +1,13 @@
+ <div>See Below for your character lists</div>
 
+  <h1>{{username}}'s User Page</h1>
 
-  <div>See Below for your character lists</div>
-
-  <h1>{{ user.username }}'s User Page</h1>
-
-    {{#each characters as || character}}
+    {{#each characters as |character| }}
    <div class="character-card-header">
 
-    {{character.name}}
+    
   </div>
-  <div class="card-body">
+  <div class="card blue-greay lighten-4">
     <p>
       Class:
       {{character.class_id}}

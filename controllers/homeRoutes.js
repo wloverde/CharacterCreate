@@ -76,6 +76,7 @@ router.get('/main', (req, res) => {
 
 // login page
 router.get('/login', (req, res) => {
+  console.log("login route")
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;

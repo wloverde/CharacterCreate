@@ -1,6 +1,4 @@
-<body class= "grey darken-3">
-  
-    <div class="container center red darken-4">
+      <div class="container center red darken-4">
       <h1 class="flow-text white-text">Character creation can sometimes take forever. Our charater builder makes it quick and easy. Select from the options below to generate your own character sheet.</h1>
     </div>
 
@@ -21,7 +19,7 @@
       </div>
 
   <h5>Class:</h5>
-      <a href="" class="dropdown-button btn black" data-activates="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
+      <a href="" class="dropdown-trigger btn black" data-target="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
       <ul id="classdropdown" class="dropdown-content">
           <li><a href ="#"> Barbarian</a></li>
           <li><a href ="#"> Bard</a></li>
@@ -62,6 +60,14 @@
        </div>
      </form>
    </div>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("drop down button")
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+    </script>
+
     
       <!--  </div>
         {{user}}
