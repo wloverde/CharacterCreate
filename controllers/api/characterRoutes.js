@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User, Character } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET all characters
 router.get('/', async (req, res) => {
@@ -34,26 +35,23 @@ router.get('/:characterId', async (req, res) => {
 
 // GET all characters for a specific user
 router.get('/user/:userId', async (req, res) => {
-  const { userId } = req.params;
-
   try {
-    const user = await User.findByPk(userId, {
-      include: { model: Character }
+    const userId = req.params.userId;
+    const characters = await Character.findAll({
+      where: {
+        user_id: userId
+      }
     });
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.json(user.Characters);
+    res.json(characters);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).send('Internal server error');
   }
 });
 
 // POST create new character for a specific user
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   const { user_id } = req.session;
   const characterData = req.body;
 
@@ -102,7 +100,7 @@ router.put('/:characterId', async (req, res) => {
 });
 
 // DELETE character by ID
-router.delete('/:characterId', async (req, res) => {
+router.delete('/:characterId', withAuth, async (req, res) => {
   const { characterId } = req.params;
 
   try {
