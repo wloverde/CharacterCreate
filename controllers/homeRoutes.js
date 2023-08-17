@@ -19,6 +19,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+
+router.get('/profile', async (req, res) => {
+  try {
+    const characters = await Character.findAll();
+    const classes = await Class.findAll();
+    const users = await User.findAll();
+
+    res.render('profile', {
+      characters, 
+      classes, // {{#each classes as |class|}}
+      users   // {{user.name}}
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Specific character Page
 router.get('/character/:characterId', async (req, res) => {
   try {

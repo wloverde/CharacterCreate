@@ -19,8 +19,8 @@
       </div>
 
   <h5>Class:</h5>
-      <a href="" class="dropdown-trigger btn black" data-target="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
-      <ul id="classdropdown" class="dropdown-content">
+      <a href"" class="dropdown-trigger btn black" data-target="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a> 
+       <ul id="classdropdown" class="dropdown-content"> 
           <li><a href ="#"> Barbarian</a></li>
           <li><a href ="#"> Bard</a></li>
           <li><a href ="#"> Cleric</a></li>
@@ -37,8 +37,8 @@
    
   
   <h5>Race:</h5>
-      <a href="" class="dropdown-button btn black" data-activates="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
-      <ul id="classdropdown" class="dropdown-content">
+      <a href="" class="dropdown-trigger btn black" data-target="racedropdown">select a race <i class="material-icons right" >arrow_drop_down</i></a>
+      <ul id="racedropdown" class="dropdown-content">
           <li><a href ="#"> Elf</a></li>
           <li><a href ="#"> Tiefling</a></li>
           <li><a href ="#"> Dwarf</a></li>
@@ -46,7 +46,7 @@
           <li><a href ="#"> Dragonborn</a></li>
           <li><a href ="#"> Human</a></li>
         </ul>
-   
+        
 
    <h5>Level: </h5>
    <div class="row">
@@ -60,20 +60,21 @@
        </div>
      </form>
    </div>
-   <script>
+
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("drop down button")
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
+      console.log("dropdown")
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(elems);
+    });
     </script>
+    
+  
+  
+      
+  
+
 
     
-      <!--  </div>
-        {{user}}
-  
-        {{character}}
-         
-        </div> -->
    
    

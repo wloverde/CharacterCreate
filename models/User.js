@@ -19,7 +19,7 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
         notEmpty: {
@@ -33,7 +33,7 @@ User.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       defaultValue: "bob",
       // validate: {
       //   notEmpty: {
