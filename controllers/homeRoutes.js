@@ -40,12 +40,13 @@ router.get('/character/:characterId', async (req, res) => {
 router.get('/create-character', async (req, res) => {
   // res.render('createCharacter');
   try {
-    const classes = await Class.findAll();
+    const classData = await Class.findAll();
+    console.log(classData);
+    const classes = classData.map(classs => {classs.get({plain:true})});
     
-    res.render('createCharacter', {
-      classes
-    });
+    res.render('createCharacter', classes);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
