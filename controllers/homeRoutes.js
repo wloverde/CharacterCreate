@@ -90,17 +90,21 @@ router.get('/login', (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: Character
+        }
+      ]
     });
-
     if (!userData) {
       return res.status(404).render('not-found');
     }
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render('profile', {
-      user,
+      ... user,
       logged_in: true
     });
   } catch (err) {
