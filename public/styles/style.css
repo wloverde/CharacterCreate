@@ -3,15 +3,18 @@ body {
     background-color: #121212;
      margin: 0; 
 }
+.white-text {
+    color: white;
+ }
 
-        .brand-logo img {
-                width: 100px;
-                height: auto;
-                position: absolute;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1001;
+.brand-logo img {
+     width: 100px;
+     height: auto;
+    position: absolute;
+    top: 10px;
+     left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
 }
 body {
     background-image: url('../images/battle.png');
