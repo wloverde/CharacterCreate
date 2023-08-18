@@ -40,12 +40,13 @@ router.get('/character/:characterId', async (req, res) => {
 router.get('/create-character', async (req, res) => {
   // res.render('createCharacter');
   try {
-    const classes = await Class.findAll();
+    const classData = await Class.findAll();
+    console.log(classData);
+    const classes = classData.map(classs => {classs.get({plain:true})});
     
-    res.render('createCharacter', {
-      classes
-    });
+    res.render('createCharacter', classes);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
@@ -90,17 +91,21 @@ router.get('/login', (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: Character
+        }
+      ]
     });
-
     if (!userData) {
       return res.status(404).render('not-found');
     }
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render('profile', {
-      user,
+      ... user,
       logged_in: true
     });
   } catch (err) {

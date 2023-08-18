@@ -84,6 +84,17 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// USER Logout
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 // PUT update user by ID
 router.put('/:userId', async (req, res) => {
   const { userId } = req.params;
