@@ -1,73 +1,102 @@
- <div>See Below for your character lists</div>
+ 
+ <div class="container center">
+      <h1 class="flow-text white-text">Personalize your play experience. Update, delete and view your character lists</h1>
+</div>
 
-  <h1>{{username}}'s User Page</h1>
+  <h1 class="flow-text center white-text">{{username}}'s User Page</h1>
 
     {{#each characters as |character| }}
-   <div class="character-card-header">
+   <div class="card-panel">
 
-    
-  </div>
-  <div class="card blue-greay lighten-4">
-    <p>
+  <div class="card grey lighten-2">
+    <h5>
       Class:
-      {{character.class_id}}
-    </p>
-    <p>
+     {{character.class_id}}
+    </h5>
+
+    <h5>
       Race:
       {{character.race}}
-    </p>
-    <p>
+    </h5>
+
+    <h5>
       Image:
       {{character.image}}
-    </p>
-    <p>
-      Level:
-      {{character.level}}
-    </p>
-    <p>
-      Armor:
-      {{character.armor}}
-    </p>
-    <p>
-      Speed:
-      {{character.speed}}
-    </p>
-    <p>
-      Dexterity:
-      {{character.dexterity}}
-    </p>
-    <p>
-      Constitution:
-      {{character.constitution}}
-    </p>
-    <p>
-      Intelligence:
-      {{character.intelligence}}
-    </p>
-    <p>
-      Wisdom:
-      <textarea {{character.wisdom}}></textarea>
-    </p>
-    <p>
-      Charisma:
-      {{character.charisma}}
-    </p>
-    <p>
-      Health:
-      {{character.health}}
-    </p>
-    <p>
-      Max_health:
-      {{max_health}}
-    </p>
-    {{/each}}
+    </h5>
 
-<a class="waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
-<a class="waves-effect waves-light btn black"><i class="material-icons left">cancel</i>DELETE</a>
+    <h5>
+      Level:
+      <textarea class="materialize-textarea">
+      {{character.level}}
+      </textarea>
+    </h5>
+
+    <h5>
+      Armor:
+      <textarea class="materialize-textarea">
+      {{character.armor}}
+      </textarea>
+    </h5>
+
+    <h5>
+      Speed:
+      <textarea class="materialize-textarea">
+      {{character.speed}}
+      </textarea>
+    </h5>
+
+    <h5>
+      Dexterity:
+      <textarea class="materialize-textarea">
+      {{character.dexterity}}
+      </textarea>
+    </h5>
+
+    <h5>
+      Constitution:
+      <textarea class="materialize-textarea">
+      {{character.constitution}}
+      </textarea>
+    </h5>
+    <h5>
+      Intelligence:
+      <textarea class="materialize-textarea">
+      {{character.intelligence}}
+      </textarea>
+    </h5>
+    <h5>
+      Wisdom:
+      <textarea class="materialize-textarea">
+        {{character.wisdom}}
+        </textarea>
+    </h5>
+    <h5>
+      Charisma:
+      <textarea class="materialize-textarea">
+      {{character.charisma}}
+      </textarea>
+    </h5>
+    <h5>
+      Health:
+      <textarea class="materialize-textarea">
+      {{character.health}}
+      </textarea>
+    </h5>
+    <h5>
+      Max_health:
+      <textarea class="materialize-textarea">
+      {{max_health}}
+      </textarea>
+    </h5>
+<p class ="center-align"> 
+<a class="center waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
+<a class="waves-effect waves-light btn black"><i class="material-icons left">delete_forever</i>DELETE</a>
+</p>
 
 
 
   </div>
 </div>
 
+    {{/each}}
 <script src="./js/profile.js"></script>
