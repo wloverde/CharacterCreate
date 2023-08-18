@@ -1,0 +1,73 @@
+ <div>See Below for your character lists</div>
+
+  <h1>{{username}}'s User Page</h1>
+
+    {{#each characters as |character| }}
+   <div class="character-card-header">
+
+    
+  </div>
+  <div class="card blue-greay lighten-4">
+    <p>
+      Class:
+      {{character.class_id}}
+    </p>
+    <p>
+      Race:
+      {{character.race}}
+    </p>
+    <p>
+      Image:
+      {{character.image}}
+    </p>
+    <p>
+      Level:
+      {{character.level}}
+    </p>
+    <p>
+      Armor:
+      {{character.armor}}
+    </p>
+    <p>
+      Speed:
+      {{character.speed}}
+    </p>
+    <p>
+      Dexterity:
+      {{character.dexterity}}
+    </p>
+    <p>
+      Constitution:
+      {{character.constitution}}
+    </p>
+    <p>
+      Intelligence:
+      {{character.intelligence}}
+    </p>
+    <p>
+      Wisdom:
+      {{character.wisdom}}
+    </p>
+    <p>
+      Charisma:
+      {{character.charisma}}
+    </p>
+    <p>
+      Health:
+      {{character.health}}
+    </p>
+    <p>
+      Max_health:
+      {{max_health}}
+    </p>
+    {{/each}}
+
+<a class="waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
+<a class="waves-effect waves-light btn black"><i class="material-icons left">cancel</i>DELETE</a>
+
+
+
+  </div>
+</div>
+
+<script src="./js/profile.js"></script>

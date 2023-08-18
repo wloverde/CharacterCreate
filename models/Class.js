@@ -12,7 +12,19 @@ Class.init(
             autoIncrement: true,
         },
         name: {
-            type: DataTypes.STRING, // VARCHAR
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        ability1: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        ability2: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        ability3: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
     },
