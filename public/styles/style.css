@@ -1,20 +1,55 @@
-body{
-    background image: url(back.jpeg);
+body {
     background-size: cover;
-    color: #ffff;
-
+    background-color: #121212;
+     margin: 0; 
 }
-.login{
+
+        .brand-logo img {
+                width: 100px;
+                height: auto;
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1001;
+}
+body {
+    background-image: url('../images/battle.png');
+    background-size: cover;
+    color: rgb(163, 72, 72);
+}
+
+.login {
     margin-top: 100px;
 }
-.login .card{
-    background: rgba(0, 0, 0, .6);
-}
-.login label{
-    font-size: 22px !important;
-    color: #CCCC;
-}
-.login button: hover{
-    padding:0x, 40px;
 
+.login .card {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.login label {
+    font-size: 16px !important;
+    color: white;
+}
+
+.login input {
+    font-size: 16px !important;
+    color: white;
+}
+
+.login button:hover {
+    padding: 0px 40px;
+}
+
+.forgot-password-link {
+    display: block;
+    text-align: right;
+}
+
+.horizontal-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
