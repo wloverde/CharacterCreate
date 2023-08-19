@@ -6,95 +6,90 @@
   <h1 class="flow-text center white-text">{{username}}'s User Page</h1>
 
     {{#each characters as |character| }}
-   <div class="card-panel">
+  <div class='row'>
+    <div class='col s4 16'>
+      <div class='card small'>
+        <div class='card-image waves-effect waves-block waves-light'>
+          <img class="activator" src=  {{character.image}}>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{character_name}}<i
+              class="material-icons right">more_vert</i></span>
+          <p><a>{{character.race}}</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{character_name}}<i class="material-icons right">close</i></span>
+          <p><h5>
+            Class:
+            {{character.class_id}}
+          </h5>
+
+          <h5>
+            Level:
+            <textarea class="materialize-textarea">
+                {{character.level}}
+                </textarea>
+          </h5>
+          
+          <h5>
+            Armor:
+            <textarea class="materialize-textarea">
+                {{character.armor}}
+                </textarea>
+          </h5>
+          
+          <h5>
+            Speed:
+            <textarea class="materialize-textarea">
+                {{character.speed}}
+                </textarea>
+          </h5>
+          
+          <h5>
+            Dexterity:
+            <textarea class="materialize-textarea">
+                {{character.dexterity}}
+                </textarea>
+          </h5>
+          
+          <h5>
+            Constitution:
+            <textarea class="materialize-textarea">
+                {{character.constitution}}
+                </textarea>
+          </h5>
+          <h5>
+            Intelligence:
+            <textarea class="materialize-textarea">
+                {{character.intelligence}}
+                </textarea>
+          </h5>
+          <h5>
+            Wisdom:
+            <textarea class="materialize-textarea">
+                  {{character.wisdom}}
+                  </textarea>
+          </h5>
+          <h5>
+            Charisma:
+            <textarea class="materialize-textarea">
+                {{character.charisma}}
+                </textarea>
+          </h5>
+          <h5>
+            Health:
+            <textarea class="materialize-textarea">
+                {{character.health}}
+                </textarea>
+          </h5>
+          <p class="center-align">
+            <a class="center waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
+            <a class="waves-effect waves-light btn black"><i class="material-icons left">delete_forever</i>DELETE</a>
+          </p>
+        </div>
+      </div>
 
   <div class="card grey lighten-2">
-    <h5>
-      Class:
-     {{character.class_id}}
-    </h5>
-
-    <h5>
-      Race:
-      {{character.race}}
-    </h5>
-
-    <h5>
-      Image:
-      {{character.image}}
-    </h5>
-
-    <h5>
-      Level:
-      <textarea class="materialize-textarea">
-      {{character.level}}
-      </textarea>
-    </h5>
-
-    <h5>
-      Armor:
-      <textarea class="materialize-textarea">
-      {{character.armor}}
-      </textarea>
-    </h5>
-
-    <h5>
-      Speed:
-      <textarea class="materialize-textarea">
-      {{character.speed}}
-      </textarea>
-    </h5>
-
-    <h5>
-      Dexterity:
-      <textarea class="materialize-textarea">
-      {{character.dexterity}}
-      </textarea>
-    </h5>
-
-    <h5>
-      Constitution:
-      <textarea class="materialize-textarea">
-      {{character.constitution}}
-      </textarea>
-    </h5>
-    <h5>
-      Intelligence:
-      <textarea class="materialize-textarea">
-      {{character.intelligence}}
-      </textarea>
-    </h5>
-    <h5>
-      Wisdom:
-      <textarea class="materialize-textarea">
-        {{character.wisdom}}
-        </textarea>
-    </h5>
-    <h5>
-      Charisma:
-      <textarea class="materialize-textarea">
-      {{character.charisma}}
-      </textarea>
-    </h5>
-    <h5>
-      Health:
-      <textarea class="materialize-textarea">
-      {{character.health}}
-      </textarea>
-    </h5>
-    <h5>
-      Max_health:
-      <textarea class="materialize-textarea">
-      {{max_health}}
-      </textarea>
-    </h5>
-<p class ="center-align"> 
-<a class="center waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
-<a class="waves-effect waves-light btn black"><i class="material-icons left">delete_forever</i>DELETE</a>
-</p>
-
-
-
   </div>
 </div>
 
