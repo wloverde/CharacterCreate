@@ -1,7 +1,7 @@
 const charCreateHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('.name').value.trim();
+  const name = document.querySelector('.name').value.trim();
   const class_id = document.querySelector('#class-id').value;
   const race = document.querySelector('#race').value;
 
@@ -20,7 +20,8 @@ const charCreateHandler = async (event) => {
       const response = await fetch('/api/characters', {
         method: 'POST',
         body: JSON.stringify({
-          character_name: name,
+          character_name: 
+          name,
           class_id,
           race,
           level,
