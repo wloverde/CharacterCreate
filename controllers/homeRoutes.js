@@ -43,7 +43,6 @@ router.get('/create-character', async (req, res) => {
     const classData = await Class.findAll();
     console.log(classData);
     const classes = classData.map(classs => {classs.get({plain:true})});
-    
     res.render('createCharacter', classes);
   } catch (err) {
     console.error(err);
@@ -94,7 +93,8 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [
         {
-          model: Character
+          model: Character,
+          model: Class
         }
       ]
     });
