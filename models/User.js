@@ -25,10 +25,6 @@ User.init(
         notEmpty: {
           msg: 'Username is required.',
         },
-        len: {
-          args: [8, 25],
-          msg: 'Username must be between 8 and 25 characters.'
-        },
       },
     },
     name: {
