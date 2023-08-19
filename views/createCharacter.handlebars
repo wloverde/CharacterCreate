@@ -1,4 +1,4 @@
-      <div class="container center red darken-4">
+    <div class="container center red darken-4">
       <h1 class="flow-text white-text">Character creation can sometimes take forever. Our charater builder makes it quick and easy. Select from the options below to generate your own character sheet.</h1>
     </div>
 
@@ -11,7 +11,7 @@
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">person</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <input id="icon_prefix2" class="name" type="text" placeholder="Name"/>
               <label for="icon_prefix2" class="black-text">Name your Character</label>
             </div>
           </div>
@@ -19,34 +19,37 @@
       </div>
 
   <h5>Class:</h5>
-      <a href="" class="dropdown-trigger btn black" data-target="classdropdown">select a class <i class="material-icons right" >arrow_drop_down</i></a>
-      <ul id="classdropdown" class="dropdown-content">
-          <li><a href ="#"> Barbarian</a></li>
-          <li><a href ="#"> Bard</a></li>
-          <li><a href ="#"> Cleric</a></li>
-          <li><a href ="#"> Druid</a></li>
-          <li><a href ="#"> Fighter</a></li>
-          <li><a href ="#"> Monk</a></li>
-          <li><a href ="#"> Paladin</a></li>
-          <li><a href ="#"> Ranger</a></li>
-          <li><a href ="#"> Rogue</a></li>
-          <li><a href ="#"> Sorcerer</a></li>
-          <li><a href ="#"> Warlock</a></li>
-          <li><a href ="#"> Wizard</a></li>
-      </ul>
+    <div class="col s6">
+      <select id="class-id" alt="classes">
+        <option value="" disabled selected>Select a Class</option>
+        <option value="1">Barbarian</option>
+        <option value="2">Bard</option>
+        <option value="3">Cleric</option>
+        <option value="4">Druid</option>
+        <option value="5">Fighter</option>
+        <option value="6">Monk</option>
+        <option value="7">Paladin</option>
+        <option value="8">Ranger</option>
+        <option value="9">Rogue</option>
+        <option value="10">Sorcerer</option>
+        <option value="11">Warlock</option>
+        <option value="12">Wizard</option>
+      </select>
+    </div>
    
   
   <h5>Race:</h5>
-      <a href="" class="dropdown-trigger btn black" data-target="racedropdown">select a race <i class="material-icons right" >arrow_drop_down</i></a>
-      <ul id="racedropdown" class="dropdown-content">
-          <li><a href ="#"> Elf</a></li>
-          <li><a href ="#"> Tiefling</a></li>
-          <li><a href ="#"> Dwarf</a></li>
-          <li><a href ="#"> Halfling</a></li>
-          <li><a href ="#"> Dragonborn</a></li>
-          <li><a href ="#"> Human</a></li>
-        </ul>
-   
+    <div class="input-field col s6">
+      <select id="race" alt="genre">
+        <option value="" disabled selected>Select a Race</option>
+        <option value="Elf"> Elf</option>
+        <option value="Tiefling"> Tiefling</option>
+        <option value="Dwarf"> Dwarf</option>
+        <option value="Halfling"> Halfling</option>
+        <option value="Dragonborn"> Dragonborn</option>
+        <option value="Human"> Human</option>
+      </select> 
+    </div>
 
    <h5>Level: </h5>
    <div class="row">
@@ -54,7 +57,7 @@
        <div class="row">
          <div class="input-field col s6">
            <i class="material-icons prefix">add_circle</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea level"></textarea>
            <label for="icon_prefix2" class="black-text">Enter level 1-20</label>
          </div>
        </div>
@@ -66,8 +69,8 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-           <label for="icon_prefix2" class="black-text">Enter value</label>
+           <textarea id="icon_prefix2" class="materialize-textarea armor"></textarea>
+           <label for="icon_prefix2" class="black-text">enemy attacks must roll higher than this number to hit</label>
          </div>
        </div>
      </form>
@@ -78,19 +81,29 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-           <label for="icon_prefix2" class="black-text">Enter value</label>
+           <textarea id="icon_prefix2" class="materialize-textarea speed"></textarea>
+           <label for="icon_prefix2" class="black-text">The distance the player can move per turn</label>
          </div>
        </div>
      </form>
    
+   <h7>Strength: </h7>
+     <form class="col s3">
+       <div class="row">
+         <div class="input-field col s8">
+           <i class="material-icons prefix">add</i>
+           <textarea id="icon_prefix2" class="materialize-textarea strength"></textarea>
+           <label for="icon_prefix2" class="black-text">Enter value</label>
+         </div>
+       </div>
+     </form>
 
   <h7>Dexterity: </h7>
      <form class="col s3">
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea dexterity"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
@@ -102,7 +115,7 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea constitution"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
@@ -113,7 +126,7 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea intelligence"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
@@ -124,7 +137,7 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea wisdom"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
@@ -135,7 +148,7 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea charisma"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
@@ -146,38 +159,32 @@
        <div class="row">
          <div class="input-field col s8">
            <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+           <textarea id="icon_prefix2" class="materialize-textarea health"></textarea>
            <label for="icon_prefix2" class="black-text">Enter value</label>
          </div>
        </div>
      </form>
 
-  <h7>Max Health: </h7>
-     <form class="col s3">
-       <div class="row">
-         <div class="input-field col s8">
-           <i class="material-icons prefix">add</i>
-           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-           <label for="icon_prefix2" class="black-text">Enter value</label>
-         </div>
-       </div>
-     </form>
 
-  <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
+
+<button class="btn waves-effect waves-light black charCreate" type="submit" name="action">Submit
+  <i class="material-icons right">send</i>
+</button>
   <p>
     
   </p>
 
    <script>
-
     document.addEventListener('DOMContentLoaded', function() {
       console.log("drop down button")
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems);
-  });
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      var elemz = document.querySelectorAll('select');
+      var instances = M.Dropdown.init(elems);
+      var instancez = M.FormSelect.init(elemz);
+    });
     </script>
+    <script src="./js/charCreate.js"></script>
+ 
 
     
       
