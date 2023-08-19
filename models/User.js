@@ -58,8 +58,8 @@ User.init(
           msg: 'Password is required.',
         },
         len: {
-          args: [8, 25],
-          msg: 'Password must be between 8 and 25 characters.',
+          args: [8],
+          msg: 'Password must be at least 8 characters.',
         },
       },
     },
