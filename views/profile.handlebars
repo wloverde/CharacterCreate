@@ -82,15 +82,9 @@
       {{character.health}}
       </textarea>
     </h5>
-    <h5>
-      Max_health:
-      <textarea class="materialize-textarea">
-      {{max_health}}
-      </textarea>
-    </h5>
 <p class ="center-align"> 
-<a class="center waves-effect waves-light btn black"><i class="material-icons left">add</i>UPDATE</a>
-<a class="waves-effect waves-light btn black"><i class="material-icons left">delete_forever</i>DELETE</a>
+<a class="center waves-effect waves-light btn black update-character-btn" data-character-id="{{character.id}}"><i class="material-icons left">add</i>UPDATE</a>
+<a class="waves-effect waves-light btn black delete-character-btn" data-character-id="{{character.id}}"><i class="material-icons left">delete_forever</i>DELETE</a>
 </p>
 
 
