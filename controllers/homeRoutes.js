@@ -94,7 +94,6 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [
         {
           model: Character,
-          model: Class
         }
       ]
     });
