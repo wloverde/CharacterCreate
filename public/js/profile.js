@@ -1,50 +1,82 @@
-// const newFormHandler = async (event) => {
-//   event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  // update Character Button
+  const charUpdateHandler = async (event, characterId) => {
+    event.preventDefault();
+    console.log('charUpdateHandler clicked for character ID:', characterId);
+    
+    const container = event.target.closest('.card');
+    const level = container.querySelector('.level').value;
+    const health = container.querySelector('.health').value;
+    const armor = container.querySelector('.armor').value;
+    const speed = container.querySelector('.speed').value;
 
-//   const name = document.querySelector('#project-name').value.trim();
-//   const needed_funding = document.querySelector('#project-funding').value.trim();
-//   const description = document.querySelector('#project-desc').value.trim();
+    const strength = container.querySelector('.strength').value;
+    const dexterity = container.querySelector('.dexterity').value.trim();
+    const constitution = container.querySelector('.constitution').value.trim();
+    const intelligence = container.querySelector('.intelligence').value.trim();
+    const wisdom = container.querySelector('.wisdom').value.trim();
+    const charisma = container.querySelector('.charisma').value.trim();
+    // ... Other updated values ...
 
-//   if (name && needed_funding && description) {
-//     const response = await fetch(`/api/projects`, {
-//       method: 'POST',
-//       body: JSON.stringify({ name, needed_funding, description }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+    try {
+      const response = await fetch(`/api/characters/${characterId}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          level,
+          health,
+          armor,
+          speed,
+          strength,
+          dexterity,
+          constitution,
+          intelligence,
+          wisdom,
+          charisma
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to create project');
-//     }
-//   }
-// };
+      if (response.ok) {
+        document.location.replace('/profile'); // Redirect to the profile page
+        alert(`Character updated successfully!`);
+      } else {
+        alert('Failed to update character.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while updating the character.');
+    }
+  };
 
-const deleteButtonHandler = async (event) => {
-    const characterId = event.target.getAttribute('data-character-id');
-    console.log(characterId);
+  // delete character button
+  const charDeleteHandler = async (event, characterId) => {
+    event.preventDefault();
+    console.log('charDeleteHandler clicked for character ID:', characterId);
+    
     try {
       const response = await fetch(`/api/characters/${characterId}`, {
         method: 'DELETE',
       });
 
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/profile'); // Redirect to the profile page
+        alert(`Character deleted successfully!`);
       } else {
-        alert('Failed to delete character');
+        alert('Failed to delete character.');
       }
     } catch (error) {
       console.error(error);
-      alert('An error occured while deleting character');
+      alert('An error occurred while deleting the character.');
     }
-};
+  };
 
-// document
-//   .querySelectorAll('.update-character-form')
-//   .forEach(form => {
-//     form.addEventListener('submit', updateFormHandler);
-//   });
-
-document.querySelector('.delete-character-btn').addEventListener('click', deleteButtonHandler);
+  document.addEventListener('click', async (event) => {
+    if (event.target.matches('.charUpdate')) {
+      const characterId = event.target.getAttribute('data-character-id');
+      charUpdateHandler(event, characterId);
+    } else if (event.target.matches('.charDelete')) {
+      const characterId = event.target.getAttribute('data-character-id');
+      charDeleteHandler(event, characterId);
+    }
+  });
+});
