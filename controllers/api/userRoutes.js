@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../../models');
+const { User , Character, Class} = require('../../models');
 
 // GET all users
 router.get('/', async (req, res) => {
@@ -18,8 +18,21 @@ router.get('/:userId', async (req, res) => {
   const { userId } = req.params;
 
   try {
-    const user = await User.findByPk(userId);
-    
+    const user = await User.findByPk(userId, {
+      include:[
+        {
+        model: Character,
+        include:[
+          {
+            model:Class,
+          }
+        ]
+        }
+      ]
+
+    });
+      
+  
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
