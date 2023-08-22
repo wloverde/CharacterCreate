@@ -52,7 +52,10 @@ Upon launching the application, users are taken to the landing page where they c
 ## Credits
     
 [proposal](https://docs.google.com/document/d/1Hu0pBlV5bhfAMALeNY7oJTbFrQPmcImOWEObM_BR7uk/edit?usp=sharing)
-    
+
+##![character-create](https://github.com/wloverde/CharacterCreate/assets/85318206/6988f267-6ce2-40a5-a4ad-490a28ce5f46)
+
+
 ## License
 
 This project is licensed under the MIT license.
